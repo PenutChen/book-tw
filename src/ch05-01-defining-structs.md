@@ -73,7 +73,7 @@
 
 範例 5-7 的程式碼產生的 `user2` 實例有不同 `email`，但是有與 `user1` 相同的 `username`、`active` 和 `sign_in_count`。`..user1` 加在最後面表示任何剩餘的欄位都會與 `user1` 對應欄位的數值相同，不過我們可以用任意順序指定多少想指定的欄位，不需要與結構體定義欄位的順序一樣。
 
-注意到結構體更新語法和賦值一樣使用 `=`，這是因為它也會轉移資料，就如同我們在[「變數與資料互動的方式：移動」][move]<!-- ignore -->段落看到的一樣。在此範例中，我們在建立 `user2` 之後就無法再使用 `user1`，因為 `user1` 的 `username` 欄位的 `String` 被移到 `user2` 了。如果我們同時給 `user2` 的 `email` 與 `username` 新的 `String`，這樣 `user1` 會用到的數值只會有 `active` 和 `sign_in_count`，這樣 `user1` 在 `user2` 就仍會有效。因為 `active` 和 `sign_in_count` 的型別都有實作 `Copy` 特徵，所以我們在[「變數與資料互動的方式：克隆」][copy]<!-- ignore -->段落討論到的行為會造成影響。
+注意到結構體更新語法和賦值一樣使用 `=`，這是因為它也會轉移資料，就如同我們在[「變數與資料互動的方式：移動」][move]<!-- ignore -->段落看到的一樣。在此範例中，我們在建立 `user2` 之後就無法再使用 `user1`，因為 `user1` 的 `username` 欄位的 `String` 被移到 `user2` 了。如果我們同時給 `user2` 的 `email` 與 `username` 新的 `String`，而 `user1` 會移給 `user2` 的數值只有 `active` 和 `sign_in_count`，這樣 `user1` 在 `user2` 就仍會有效。因為 `active` 和 `sign_in_count` 的型別都有實作 `Copy` 特徵，所以我們在[「變數與資料互動的方式：克隆」][copy]<!-- ignore -->段落討論到的行為在此處發揮了影響力。
 
 ### 使用無名稱欄位的元組結構體來建立不同型別
 
